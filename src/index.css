@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-ink-200;
+  }
+  body {
+    @apply font-sans text-ink-900 antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid #c9a227;
+    outline-offset: 2px;
+  }
+}
+
+/* Fixed-width "paper" so html2canvas produces a consistent A4-proportioned
+   raster regardless of viewport. The on-screen preview scales this down to
+   fit narrow screens (see ResponsiveStage.jsx); PDF export always captures
+   an untransformed off-screen copy at this true size instead. */
+.invoice-sheet {
+  width: 794px; /* ~ A4 at 96dpi */
+  min-height: 1123px;
+  background: #fffdf9;
+}
